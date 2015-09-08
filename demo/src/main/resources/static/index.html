@@ -14,13 +14,12 @@
 		</style>
 	</head>
 	<body ng-app="hello" ng-cloak class="ng-cloak">
-		<div ng-controler="navigation" class="container">
+		<div ng-controller="navigation" class="container">
 			<ul class="nav nav-pills" role="tablist">
-				<li class="active"><a href="#/">Home</a></li>
-				<li><a href="#/login">Login</a></li>
-				<li ng-show="authenticated"><a href="" ng-click="logout()">Logout</a></li>	
+				<li ng-class="{active:tab('home')}"><a href="#/">home</a></li>
+				<li><a href="login">login</a></li>
+				<li ng-show="authenticated"><a href="" ng-click="logout()">logout</a></li>
 			</ul>
-			{{authenticated}}
 		</div>
 		<div ng-view class="container"></div>
 		

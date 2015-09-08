@@ -3,9 +3,6 @@ angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl : 'home.html',
 		controller : 'home'
-	}).when('/login', {
-		templateUrl : 'login.html',
-		controller : 'navigation'
 	}).otherwise('/');
 
 }).controller('navigation',
@@ -15,7 +12,7 @@ function($rootScope, $scope, $http, $location, $route) {
 	$scope.tab = function(route) {
 		return $route.current && route === $route.current.controller;
 	};
-
+/*
 	var authenticate = function(callback) {
 
 		$http.get('user').success(function(data) {
@@ -32,10 +29,22 @@ function($rootScope, $scope, $http, $location, $route) {
 
 	};
 
-	authenticate();
+	authenticate();*/
 
+	$http.get('user/').success(function(data) {
+		if (data.name) {
+			$rootScope.authenticated = true;
+		} else {
+			$rootScope.authenticated = false;
+		}
+		//callback && callback();
+	}).error(function() {
+		$rootScope.authenticated = false;
+		//callback && callback();
+	});
+	
 	$scope.credentials = {};
-	$scope.login = function() {
+/*	$scope.login = function() {
 		console.log('login function');
 		$http.post('login', $.param($scope.credentials), {
 			headers : {
@@ -61,7 +70,7 @@ function($rootScope, $scope, $http, $location, $route) {
 			$scope.error = true;
 			$rootScope.authenticated = false;
 		});
-	};
+	};*/
 
 	$rootScope.logout = function() {
 		console.log('logout function');
@@ -71,7 +80,7 @@ function($rootScope, $scope, $http, $location, $route) {
 		}).error(function(data) {
 			console.log("Logout failed");
 			$rootScope.authenticated = false;
-		});
+		});	
 	};
 
 }).controller('home', function($scope, $http) {
