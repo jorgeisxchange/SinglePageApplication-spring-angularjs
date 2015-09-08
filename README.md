@@ -18,3 +18,4 @@ Updated 09/08/2015:
 2. If downloaded as zip, extract it to a directory. You will then have 3 subdirectories: demo, authserver and resource.
 3. Import the two directories as Maven Projects separately and wait for each of them to build.
 4. Find the DemoApplication.java, AuthserverApplication.java and ResourceApplication.java and run them as java application.
+5. Open a browser and go to http://localhost:8080
