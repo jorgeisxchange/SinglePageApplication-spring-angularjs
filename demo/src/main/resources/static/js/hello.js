@@ -76,10 +76,10 @@ function($rootScope, $scope, $http, $location, $route) {
 
 }).controller('home', function($scope, $http) {
 	console.log('home function');
-	$http.get('http://localhost:9000').success(function(data) {
-		$scope.greeting = data;
-	});
-	/*$http.get('resource/').success(function(data) {
+	/*$http.get('http://localhost:9000').success(function(data) {
 		$scope.greeting = data;
 	});*/
+	$http.get('resource/').success(function(data) {
+		$scope.greeting = data;
+	});
 });
