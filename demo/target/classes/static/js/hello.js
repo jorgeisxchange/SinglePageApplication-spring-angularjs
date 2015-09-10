@@ -1,18 +1,18 @@
-angular.module('hello', [ 'ngRoute' ]).config(function($routeProvider) {
+angular.module('hello', [ 'ngRoute', 'home', 'navigation']).config(function($routeProvider) {
 
 	$routeProvider.when('/', {
-		templateUrl : 'home.html',
+		templateUrl : 'js/home/home.html',
 		controller : 'home'
 	}).otherwise('/');
 
-}).controller('navigation',
+});/*.controller('navigation',
 
 function($rootScope, $scope, $http, $location, $route) {
 
 	$scope.tab = function(route) {
 		return $route.current && route === $route.current.controller;
 	};
-/*
+
 	var authenticate = function(callback) {
 
 		$http.get('user').success(function(data) {
@@ -29,7 +29,7 @@ function($rootScope, $scope, $http, $location, $route) {
 
 	};
 
-	authenticate();*/
+	authenticate();
 
 	$http.get('user/').success(function(data) {
 		if (data.name) {
@@ -44,7 +44,7 @@ function($rootScope, $scope, $http, $location, $route) {
 	});
 	
 	$scope.credentials = {};
-/*	$scope.login = function() {
+	$scope.login = function() {
 		console.log('login function');
 		$http.post('login', $.param($scope.credentials), {
 			headers : {
@@ -70,7 +70,7 @@ function($rootScope, $scope, $http, $location, $route) {
 			$scope.error = true;
 			$rootScope.authenticated = false;
 		});
-	};*/
+	};
 
 	$rootScope.logout = function() {
 		console.log('logout function');
@@ -85,10 +85,11 @@ function($rootScope, $scope, $http, $location, $route) {
 
 }).controller('home', function($scope, $http) {
 	console.log('home function');
-	/*$http.get('http://localhost:9000').success(function(data) {
+	$http.get('http://localhost:9000').success(function(data) {
 		$scope.greeting = data;
-	});*/
+	});
 	$http.get('resource/').success(function(data) {
 		$scope.greeting = data;
 	});
 });
+*/
